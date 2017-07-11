@@ -1,0 +1,26 @@
+<!-- В этом файле хранятся настройки, необходимые для доступа к БД -->
+<!-- Стандартная шапка -->
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <!-- Каждый "persistence-unit" задает доступ к определенной БД -->
+    <persistence-unit name="Smiddle">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>  <!-- Полный путь к классу Provider-->
+
+        <properties>
+            <property name="hibernate.show_sql"
+                      value="false"/>  <!-- Все sq-запросы которые сгенерил hibernate выводить в консоли-->
+            <property name="hibernate.hbm2ddl.auto"
+                      value="update"/>    <!-- Обновление схемы в БД каждый раз при внесении изменений структуры таблиц -->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:mysql://172.22.2.63:3306/SMIDDLE2?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8"/>
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.MySQL5Dialect"/> <!-- Полный путь к классу описывающего диалект общения с типом БД -->
+            <property name="javax.persistence.jdbc.user" value="developer"/>
+            <property name="javax.persistence.jdbc.password" value="Smidle098adm"/>
+        </properties>
+    </persistence-unit>
+</persistence>
